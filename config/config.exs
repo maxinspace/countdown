@@ -17,6 +17,13 @@ config :countdown, CountdownWeb.Endpoint,
   pubsub: [name: Countdown.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Configures the auth0
+config :auth0_ex,
+  domain: System.get_env("AUTH0_DOMAIN"),
+  mgmt_client_id: System.get_env("AUTH0_MGMT_CLIENT_ID"),
+  mgmt_client_secret: System.get_env("AUTH0_MGMT_CLIENT_SECRET"),
+  http_opts: []
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

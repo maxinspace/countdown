@@ -3,6 +3,19 @@
   <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
 </div>
 
+<div class="row events">
+  <ul>
+    <%= for event <- @events do %>
+      <div class="jumbotron">
+        <span class="h1">Days until <%= event.title %></span>
+        <p class="text-center">
+          <span class="countdownClock" data-due="<%= NaiveDateTime.to_date(event.due) %>"></span>
+        </p>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
 <div class="row marketing">
   <div class="col-lg-6">
     <h4>Resources</h4>
